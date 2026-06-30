@@ -1,0 +1,87 @@
+/* ── gallery page specific styles ── */
+/* this file is loaded ALONGSIDE stylesheet.css on gallery.html */
+
+#gallery-intro {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #800000;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+#gallery-grid {
+  column-count: 2;
+  column-gap: 24px;
+}
+
+.polaroid {
+  position: relative;
+  background: #fdfdf5;
+  border: 1px solid #999;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.35);
+  padding: 2px 2px 5px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.15s ease;
+  cursor: default;
+  break-inside: avoid;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.polaroid:hover {
+  box-shadow: 4px 5px 10px rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+.polaroid:nth-child(6n+1) { --tilt: -6deg; }
+.polaroid:nth-child(6n+2) { --tilt: 4deg; }
+.polaroid:nth-child(6n+3) { --tilt: -2deg; }
+.polaroid:nth-child(6n+4) { --tilt: 7deg; }
+.polaroid:nth-child(6n+5) { --tilt: -4deg; }
+.polaroid:nth-child(6n+6) { --tilt: 2deg; }
+
+.polaroid-photo {
+  width: 100%;
+  min-height: 90px;
+  background: repeating-linear-gradient(
+    45deg,
+    #c0c0c0,
+    #c0c0c0 10px,
+    #b0b0b0 10px,
+    #b0b0b0 20px
+  );
+  border: 1px solid #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+/* once a real <img> is placed inside, it dictates the box's height
+   so different photo sizes/aspect-ratios stack naturally */
+.polaroid-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.polaroid-caption {
+  font-size: 13px;
+  color: #000080;
+  font-weight: 900;
+}
+
+@media (max-width: 480px) {
+  #gallery-grid {
+    column-count: 1;
+  }
+  .polaroid {
+    margin-bottom: 18px;
+  }
+}
