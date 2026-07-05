@@ -219,7 +219,8 @@
 </div>
 
 <script>
-  // music player
+  
+  //audio player
   const playBtn = document.getElementById('play-btn');
   const playIcon = document.getElementById('play-icon');
   const song = document.getElementById('bg-song');
@@ -232,20 +233,30 @@
     if (song.paused) {
       song.play();
       playIcon.className = 'icon-pause';
-      playBtn.lastChild.textContent = 'pause';
+      playBtn.lastChild.textContent = 'pause song';
       playBtn.setAttribute('aria-pressed', 'true');
       nowPlaying.textContent = 'now playing...';
     } else {
       song.pause();
       playIcon.className = 'icon-play';
-      playBtn.lastChild.textContent = 'play';
+      playBtn.lastChild.textContent = 'play song';
       playBtn.setAttribute('aria-pressed', 'false');
-      nowPlaying.textContent = 'You may rest here, adventurer... (sound is 0)';
+      nowPlaying.textContent = 'click to play a lil tune';
     }
   });
 
   volumeSlider.addEventListener('input', () => {
     song.volume = volumeSlider.value / 100;
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && !song.paused) {
+      song.pause();
+      playIcon.className = 'icon-play';
+      playBtn.lastChild.textContent = 'play song';
+      playBtn.setAttribute('aria-pressed', 'false');
+      nowPlaying.textContent = 'click to play a lil tune';
+    }
   });
 
   // visitor counter
