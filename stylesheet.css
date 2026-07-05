@@ -235,6 +235,13 @@ body {
     inset 2px 2px #dfdfdf;
 }
 
+#site-footer img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 8px;
+}
+
 .hit-counter {
   display: inline-block;
   background: #000000;
