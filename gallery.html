@@ -157,11 +157,9 @@
 
   <!-- footer -->
   <footer id="site-footer">
-    <p>
-      ima implement a way to actually track it trust  <span class="hit-counter">000002</span>
-    </p>
+    <p>It works!!! ---> <span class="hit-counter" id="hit-counter">000000</span></p>
     <p style="margin-top: 6px;">
-      circa 2005 |&nbsp;
+      made by Erikas |&nbsp;
       <a href="https://eika12345.github.io/windows-98/">propa 90s web</a>
     </p>
     <p style="margin-top: 6px; color: #808080;">
@@ -170,6 +168,18 @@
   </footer>
 
 </div>
+
+<script>
+  fetch('https://abacus.jasoncameron.dev/hit/eika12345.github.io-portfolio/visits')
+    .then(response => response.json())
+    .then(data => {
+      const padded = String(data.value).padStart(6, '0');
+      document.getElementById('hit-counter').innerText = padded;
+    })
+    .catch(() => {
+      document.getElementById('hit-counter').innerText = 'ERROR';
+    });
+</script>
 
 </body>
 </html>
