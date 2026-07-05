@@ -254,10 +254,6 @@ body {
   margin: 0 6px;
 }
 
-#site-footer a {
-  color: #000000;
-}
-
 /* ── responsive ── */
 @media (max-width: 600px) {
   body {
