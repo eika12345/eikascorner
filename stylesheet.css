@@ -103,6 +103,13 @@ body {
   animation: blink 1s step-end infinite;
 }
 
+#site-header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto 0;
+}
+
 @keyframes blink {
   50% { opacity: 0; }
 }
@@ -264,5 +271,21 @@ body {
   #content {
     margin: 4px;
     padding: 14px 14px;
+  }
+
+  #nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-btn {
+    text-align: center;
+    padding: 4px 10px;
+  }
+
+  .under-construction {
+    margin-left: 0;
+    margin-top: 4px;
+    text-align: center;
   }
 }
