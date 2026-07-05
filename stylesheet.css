@@ -112,7 +112,6 @@ body {
   background: #c0c0c0;
   border-bottom: 2px inset #808080;
   padding: 5px 8px;
-  font-family: Arial, sans-serif;
   font-size: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -139,8 +138,7 @@ body {
 }
 
 .under-construction {
-  font-size: 11px;
-  font-family: Arial, sans-serif;
+  font-size: 12px;
   background: #ffff00;
   color: #ff0000;
   border: 1px solid #ff0000;
@@ -223,8 +221,7 @@ body {
   background: #c0c0c0;
   border-top: 2px outset #ffffff;
   padding: 10px 12px;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   color: #000000;
   text-align: center;
   line-height: 1.8;
