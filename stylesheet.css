@@ -136,8 +136,51 @@ body {
   border: 2px outset #ffffff;
   padding: 3px 10px;
   font-size: 12px;
-  font-family: Arial, sans-serif;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-play,
+.icon-pause {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  vertical-align: middle;
+}
+
+.icon-play {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 9px solid #000000;
+}
+
+.icon-pause {
+  position: relative;
+  width: 9px;
+  height: 11px;
+  background: transparent;
+}
+
+.icon-pause::before,
+.icon-pause::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 11px;
+  background: #000000;
+}
+
+.icon-pause::before {
+  left: 0;
+}
+
+.icon-pause::after {
+  right: 0;
 }
  
 #play-btn:active,

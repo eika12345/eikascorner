@@ -39,6 +39,15 @@
     <img src="images/wingedeye.png" alt="">
   </div>
 
+  <!-- music player -->
+  <div id="music-player">
+    <button id="play-btn" type="button" aria-pressed="false"><span id="play-icon" class="icon-play"></span>play</button>
+    <label id="volume-label" for="volume-slider">vol</label>
+    <input type="range" id="volume-slider" min="0" max="100" value="0" step="1" aria-label="Volume">
+    <span id="now-playing">You may rest here, adventurer... (sound is 0)</span>
+    <audio id="bg-song" src="Saskia.mp3" preload="none" loop></audio>
+  </div>
+
   <!-- navigation -->
   <nav id="nav">
     <a class="nav-btn" href="index.html">Home</a>
@@ -210,6 +219,36 @@
 </div>
 
 <script>
+  // music player
+  const playBtn = document.getElementById('play-btn');
+  const playIcon = document.getElementById('play-icon');
+  const song = document.getElementById('bg-song');
+  const nowPlaying = document.getElementById('now-playing');
+  const volumeSlider = document.getElementById('volume-slider');
+
+  song.volume = 0;
+
+  playBtn.addEventListener('click', () => {
+    if (song.paused) {
+      song.play();
+      playIcon.className = 'icon-pause';
+      playBtn.lastChild.textContent = 'pause';
+      playBtn.setAttribute('aria-pressed', 'true');
+      nowPlaying.textContent = 'now playing...';
+    } else {
+      song.pause();
+      playIcon.className = 'icon-play';
+      playBtn.lastChild.textContent = 'play';
+      playBtn.setAttribute('aria-pressed', 'false');
+      nowPlaying.textContent = 'You may rest here, adventurer... (sound is 0)';
+    }
+  });
+
+  volumeSlider.addEventListener('input', () => {
+    song.volume = volumeSlider.value / 100;
+  });
+
+  // visitor counter
   fetch('https://abacus.jasoncameron.dev/hit/eika12345.github.io-portfolio/visits')
     .then(response => response.json())
     .then(data => {
