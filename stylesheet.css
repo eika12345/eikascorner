@@ -8,7 +8,8 @@
 
 body {
   background-color: #000080;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%23000080'/%3E%3Crect x='0' y='0' width='10' height='10' fill='%230000aa'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%230000aa'/%3E%3C/svg%3E");
+  background-image: url("images/starsbg.png");
+  background-repeat: repeat;
   font-family: "Times New Roman", Times, serif !important;
   color: #000000;
   padding: 16px;
@@ -96,11 +97,19 @@ body {
 }
 
 .blink {
-  color: #640404;
   font-family: Arial, sans-serif;
   font-size: 12px;
   font-weight: bold;
-  animation: blink 1s step-end infinite;
+  background: linear-gradient(
+    90deg,
+    #ff0000, #ff9900, #ffee00, #00cc44, #0066ff, #8800ff, #ff0000
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-scroll 4s linear infinite;
 }
 
 #site-header img {
@@ -110,8 +119,9 @@ body {
   margin: 10px auto 0;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+@keyframes rainbow-scroll {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
 }
 
 /* ── music player ── */
