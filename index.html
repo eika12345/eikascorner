@@ -50,10 +50,10 @@
 
   <!-- music player -->
   <div id="music-player">
-    <button id="play-btn" type="button" aria-pressed="false"><span id="play-icon" class="icon-play"></span>play song</button>
+    <button id="play-btn" type="button" aria-pressed="false"><span id="play-icon" class="icon-play"></span>play</button>
     <label id="volume-label" for="volume-slider">vol</label>
     <input type="range" id="volume-slider" min="0" max="100" value="0" step="1" aria-label="Volume">
-    <span id="now-playing">click to play a lil tune</span>
+    <span id="now-playing">You may rest here, adventurer...</span>
     <audio id="bg-song" src="Saskia.mp3" preload="none" loop></audio>
   </div>
 
@@ -84,7 +84,7 @@
       <p class="entry-date">05/07/2026 - 14:49</p>
       <h2 class="entry-title">Inspiration</h2>
       <div class="entry-body">
-        <p><a href="https://www.cameronsworld.net/" target="_blank">Camerons World </a>serves as my inspiration and the spark that made me love og web aesthetics. My first portfolio website was based off his (you can find a screenshot of it in the <a href="gallery.html">gallery</a>). It's no where near as good as Camerons World, but I loved the heck out of it. I'm going to slowly add more features to this site, until one day it becomes fully fleshed out and maybe could maybe have a functional chat (?) Time will tell</p>
+        <p><a href="https://www.cameronsworld.net/" target="_blank">Camerons World</a> serves as my inspiration and the spark that made me love og web aesthetics. My first portfolio website was based off his (you can find a screenshot of it in the <a href="gallery.html">gallery</a>). It's no where near as good as Camerons World, but I loved the heck out of it. I'm going to slowly add more features to this site, until one day it becomes fully fleshed out and maybe could maybe have a functional chat (?) Time will tell</p>
         <p class="entry-mood">update</p>
         <p>I also completely forgot about a windows 98 themed desktop I made, it was my portfolio for so long. I made it during a learning period, so the code is unbelievably sloppy and trying to make any updates to it is impossible - <a href="https://eika12345.github.io/windows-98/" target="_blank">Here yo</a> (best viewed on desktop (duh))</p>
       </div>
@@ -206,15 +206,15 @@
     if (song.paused) {
       song.play();
       playIcon.className = 'icon-pause';
-      playBtn.lastChild.textContent = 'pause song';
+      playBtn.lastChild.textContent = 'pause';
       playBtn.setAttribute('aria-pressed', 'true');
       nowPlaying.textContent = 'now playing...';
     } else {
       song.pause();
       playIcon.className = 'icon-play';
-      playBtn.lastChild.textContent = 'play song';
+      playBtn.lastChild.textContent = 'play';
       playBtn.setAttribute('aria-pressed', 'false');
-      nowPlaying.textContent = 'click to play a lil tune';
+      nowPlaying.textContent = 'You may rest here, adventurer...';
     }
   });
 
@@ -226,9 +226,9 @@
     if (document.hidden && !song.paused) {
       song.pause();
       playIcon.className = 'icon-play';
-      playBtn.lastChild.textContent = 'play song';
+      playBtn.lastChild.textContent = 'play';
       playBtn.setAttribute('aria-pressed', 'false');
-      nowPlaying.textContent = 'click to play a lil tune';
+      nowPlaying.textContent = 'You may rest here, adventurer...';
     }
   });
 
