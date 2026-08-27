@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eikascorner.txt</title>
+
+  <meta name="description" content="A low effort 90s-style diary. Thoughts, dreams, and whatever else is on my mind.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="eikascorner.txt">
+  <meta property="og:description" content="A low effort diary. Thoughts, dreams, and whatever else is on my mind.">
+  <meta property="og:url" content="https://eika12345.github.io/idk/">
+  <meta property="og:image" content="https://eika12345.github.io/idk/images/wingedeye.png">
+
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="guestbook.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+<div id="page">
+
+  <!-- windows titlebar -->
+  <div class="title-bar" id="titlebar">
+  <div class="title-bar-text">Guestbook</div>
+  <div class="title-bar-controls">
+    <button aria-label="Minimize"></button>
+    <button aria-label="Maximize"></button>
+    <button aria-label="Close"></button>
+  </div>
+</div>
+
+  <!-- scrolling marquee -->
+  <div id="marquee-bar">
+    <div id="marquee-inner">
+      ★★ neocities sponsor me ★★
+    </div>
+  </div>
+
+  <!-- header -->
+  <div id="site-header">
+    <p id="site-subtitle">Some may call this junk. Me, I call them treasures.</p>
+    <p class="blink">eika12345.github.io/portfolio</p>
+    <img src="images/wingedeye.png" alt="">
+  </div>
+
+  <!-- music player -->
+  <div id="music-player">
+    <button id="play-btn" type="button" aria-pressed="false"><span id="play-icon" class="icon-play"></span>play</button>
+    <label id="volume-label" for="volume-slider">vol</label>
+    <input type="range" id="volume-slider" min="0" max="100" value="0" step="1" aria-label="Volume">
+    <span id="now-playing">You may rest here, adventurer...</span>
+    <audio id="bg-song" src="Saskia.mp3" preload="none" loop></audio>
+  </div>
+
+  <!-- navigation -->
+  <nav id="nav">
+    <a class="nav-btn" href="index.html">Home</a>
+    <a class="nav-btn" href="gallery.html">Gallery</a>
+    <a class="nav-btn" href="guestbook.html">Guestbook</a>
+    <a class="nav-btn" href="https://open.spotify.com/playlist/4bAnjmeCV11FUV1XMET7eQ" target="_blank">Heavenly dnb (spotify link)</a>
+    <a class="nav-btn" href="https://uk.pinterest.com/3r1kas123/_pins/" target="_blank">Pins (pinterest link)</a>
+    <a class="nav-btn" href="https://github.com/eika12345/idk" target="_blank">Dev corner (gh)</a>
+    <span class="under-construction">🚧under construction🚧</span>
+  </nav>
+
+  <!-- guestbook content -->
+  <main id="content">
+
+    <p id="guestbook-intro">
+      sign my guestbook. say hi, be normal about it
+    </p>
+
+    <div class="window" id="guestbook-form-window">
+      <div class="title-bar">
+        <div class="title-bar-text">sign.exe</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <form id="guestbook-form">
+
+          <div class="gb-field">
+            <label for="gb-name">name</label>
+            <input type="text" id="gb-name" name="name" maxlength="40" required>
+          </div>
+
+          <div class="gb-field">
+            <label for="gb-message">message</label>
+            <textarea id="gb-message" name="message" maxlength="400" required></textarea>
+          </div>
+
+          <!-- honeypot: real visitors never see or fill this in -->
+          <div class="gb-field gb-hp" aria-hidden="true">
+            <label for="gb-website">website</label>
+            <input type="text" id="gb-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div id="guestbook-submit-row">
+            <button type="submit" id="guestbook-submit">sign</button>
+            <span id="guestbook-status"></span>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div id="guestbook-entries"></div>
+    <p id="guestbook-empty" style="display:none;">no entries yet. be the first weirdo</p>
+
+  </main>
+
+  <!-- footer -->
+  <footer id="site-footer">
+    <div class="end">
+    <img src="images/fire.gif" alt="fire"><p>WELCOME TO THE END</p><img src="images/fire.gif" alt="fire">
+    <img src="images/skeletonhands.png" alt="skeletonhands">
+    </div>
+
+    <p>Total num of visits - it works!!! ---> <span class="hit-counter" id="hit-counter">000000</span></p>
+    <p style="margin-top: 6px;">
+      made by Erikas |&nbsp;
+      <a href="https://eika12345.github.io/windows-98/">propa 90s web</a>
+    </p>
+    <p style="margin-top: 6px; color: #808080;">This page is best viewed on desktop</p>
+    <img src="images/cookiefree.png" alt="cookiefree" style="padding: 10px;">
+  </footer>
+
+</div>
+
+<!-- Supabase client -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+
+  // ── FILL THESE IN — Supabase project settings > API ──
+  const SUPABASE_URL = "https://dhaseqwzpkjuigkhjmig.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoYXNlcXd6cGtqdWlna2hqbWlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NDg0OTYsImV4cCI6MjEwMzQyNDQ5Nn0.gCJyhEAMNd4cPhcvbWwEMJDf2n6GIpSuPF3jtEAqsvQ";
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const form = document.getElementById('guestbook-form');
+  const submitBtn = document.getElementById('guestbook-submit');
+  const statusEl = document.getElementById('guestbook-status');
+  const entriesEl = document.getElementById('guestbook-entries');
+  const emptyEl = document.getElementById('guestbook-empty');
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function formatDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function renderEntry(entry) {
+    const win = document.createElement('div');
+    win.className = 'window gb-entry';
+    win.innerHTML = `
+      <div class="title-bar">
+        <div class="title-bar-text">${escapeHtml(entry.name)}.msg</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">${escapeHtml(entry.message)}</div>
+      <div class="status-bar">
+        <p class="status-bar-field">${formatDate(entry.created_at)}</p>
+      </div>
+    `;
+    return win;
+  }
+
+  async function loadEntries() {
+    const { data, error } = await supabase
+      .from('guestbook')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      statusEl.textContent = 'couldn\'t load entries';
+      return;
+    }
+
+    entriesEl.innerHTML = '';
+    if (!data || data.length === 0) {
+      emptyEl.style.display = 'block';
+      return;
+    }
+    emptyEl.style.display = 'none';
+    data.forEach(entry => entriesEl.appendChild(renderEntry(entry)));
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // honeypot check — bots fill this in, humans never see it
+    const honeypot = document.getElementById('gb-website').value;
+    if (honeypot) {
+      return;
+    }
+
+    const name = document.getElementById('gb-name').value.trim();
+    const message = document.getElementById('gb-message').value.trim();
+    if (!name || !message) return;
+
+    submitBtn.disabled = true;
+    statusEl.textContent = 'signing...';
+
+    const { error } = await supabase.from('guestbook').insert({ name, message });
+
+    if (error) {
+      statusEl.textContent = 'something broke, try again';
+      submitBtn.disabled = false;
+      return;
+    }
+
+    form.reset();
+    statusEl.textContent = 'signed! thanks';
+    await loadEntries();
+
+    // simple rate limit: keep the button disabled a few seconds
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      statusEl.textContent = '';
+    }, 5000);
+  });
+
+  loadEntries();
+
+  // ── audio player (same as gallery.html) ──
+  const playBtn = document.getElementById('play-btn');
+  const playIcon = document.getElementById('play-icon');
+  const song = document.getElementById('bg-song');
+  const nowPlaying = document.getElementById('now-playing');
+  const volumeSlider = document.getElementById('volume-slider');
+
+  song.volume = 0;
+
+  playBtn.addEventListener('click', () => {
+    if (song.paused) {
+      song.play();
+      playIcon.className = 'icon-pause';
+      playBtn.lastChild.textContent = 'pause';
+      playBtn.setAttribute('aria-pressed', 'true');
+      nowPlaying.textContent = 'now playing...';
+    } else {
+      song.pause();
+      playIcon.className = 'icon-play';
+      playBtn.lastChild.textContent = 'play';
+      playBtn.setAttribute('aria-pressed', 'false');
+      nowPlaying.textContent = 'You may rest here, adventurer...';
+    }
+  });
+
+  volumeSlider.addEventListener('input', () => {
+    song.volume = volumeSlider.value / 100;
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && !song.paused) {
+      song.pause();
+      playIcon.className = 'icon-play';
+      playBtn.lastChild.textContent = 'play';
+      playBtn.setAttribute('aria-pressed', 'false');
+      nowPlaying.textContent = 'You may rest here, adventurer...';
+    }
+  });
+
+  // visitor counter (same as gallery.html)
+  fetch('https://abacus.jasoncameron.dev/hit/eika12345.github.io-portfolio/visits')
+    .then(response => response.json())
+    .then(data => {
+      const padded = String(data.value).padStart(6, '0');
+      document.getElementById('hit-counter').innerText = padded;
+    })
+    .catch(() => {
+      document.getElementById('hit-counter').innerText = 'ERROR';
+    });
+</script>
+
+</body>
+</html>

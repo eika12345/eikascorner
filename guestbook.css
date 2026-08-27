@@ -1,0 +1,124 @@
+#guestbook-intro {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #800000;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ── sign-in form window ── */
+#guestbook-form-window {
+  font-family: Arial, sans-serif;
+  margin-bottom: 24px;
+}
+
+#guestbook-form-window .window-body {
+  margin: 10px;
+}
+
+.gb-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gb-field label {
+  font-size: 11px;
+  color: #000080;
+  font-weight: bold;
+}
+
+.gb-field input[type="text"],
+.gb-field textarea {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+  padding: 4px 6px;
+  border: 2px inset #808080;
+  background: #ffffff;
+  resize: vertical;
+}
+
+.gb-field textarea {
+  min-height: 60px;
+}
+
+/* honeypot field, hidden from real visitors */
+.gb-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+#guestbook-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+#guestbook-submit {
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  padding: 3px 14px;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+#guestbook-submit:active {
+  border-style: inset;
+}
+
+#guestbook-submit:disabled {
+  color: #808080;
+  cursor: default;
+}
+
+#guestbook-status {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  color: #000080;
+}
+
+/* ── entries list ── */
+#guestbook-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gb-entry {
+  font-family: Arial, sans-serif;
+}
+
+.gb-entry .title-bar-text {
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gb-entry .window-body {
+  margin: 8px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.gb-entry .status-bar-field {
+  font-size: 11px;
+  color: #800080;
+}
+
+#guestbook-empty {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #808080;
+  text-align: center;
+  padding: 12px;
+}
