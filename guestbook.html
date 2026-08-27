@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -144,7 +144,7 @@
   const SUPABASE_URL = "https://dhaseqwzpkjuigkhjmig.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoYXNlcXd6cGtqdWlna2hqbWlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NDg0OTYsImV4cCI6MjEwMzQyNDQ5Nn0.gCJyhEAMNd4cPhcvbWwEMJDf2n6GIpSuPF3jtEAqsvQ";
 
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const form = document.getElementById('guestbook-form');
   const submitBtn = document.getElementById('guestbook-submit');
@@ -184,7 +184,7 @@
   }
 
   async function loadEntries() {
-    const { data, error } = await supabase
+    const { data, error } = await sb
       .from('guestbook')
       .select('*')
       .order('created_at', { ascending: false });
@@ -219,7 +219,7 @@
     submitBtn.disabled = true;
     statusEl.textContent = 'signing...';
 
-    const { error } = await supabase.from('guestbook').insert({ name, message });
+    const { error } = await sb.from('guestbook').insert({ name, message });
 
     if (error) {
       statusEl.textContent = 'something broke, try again';
