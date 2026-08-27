@@ -63,8 +63,12 @@
   background: #c0c0c0;
   border: 2px outset #ffffff;
   padding: 3px 14px;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
+}
+
+#guestbook-submit:hover {
+    background: #d4d0c8;
 }
 
 #guestbook-submit:active {
