@@ -32,7 +32,6 @@
 
 .gb-field input[type="text"],
 .gb-field textarea {
-  font-family: "Times New Roman", Times, serif;
   font-size: 13px;
   padding: 4px 6px;
   border: 2px inset #808080;
@@ -64,8 +63,7 @@
   background: #c0c0c0;
   border: 2px outset #ffffff;
   padding: 3px 14px;
-  font-size: 12px;
-  font-family: Arial, sans-serif;
+  font-size: 13px;
   cursor: pointer;
 }
 
@@ -79,7 +77,6 @@
 }
 
 #guestbook-status {
-  font-family: Arial, sans-serif;
   font-size: 11px;
   color: #000080;
 }
@@ -111,8 +108,12 @@
 }
 
 .gb-entry .status-bar-field {
+  font-family: Arial, sans-serif;
   font-size: 11px;
-  color: #800080;
+  color: #800000;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 #guestbook-empty {
