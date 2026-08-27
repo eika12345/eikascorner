@@ -116,7 +116,7 @@
     <img src="images/skeletonhands.png" alt="skeletonhands">
     </div>
 
-    <p>Total num of visits - it works!!! ---> <span class="hit-counter" id="hit-counter">000000</span></p>
+    <p>Total num of visits - hella inflated!!! ---> <span class="hit-counter" id="hit-counter">000000</span></p>
     <p style="margin-top: 6px;">
       made by Erikas |&nbsp;
       <a href="https://eika12345.github.io/windows-98/">propa 90s web</a>
@@ -159,12 +159,8 @@
     win.className = 'window gb-entry';
     win.innerHTML = `
       <div class="title-bar">
-        <div class="title-bar-text">${escapeHtml(entry.name)}.msg</div>
-        <div class="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
+        <div class="title-bar-text">${escapeHtml(entry.name)}</div>
+        
       </div>
       <div class="window-body">${escapeHtml(entry.message)}</div>
       <div class="status-bar">
